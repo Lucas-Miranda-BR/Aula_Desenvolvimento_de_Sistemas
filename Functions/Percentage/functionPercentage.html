@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percentage</title>
+</head>
+<body>
+    <script src="functionPercentage.js"></script>
+
+    <script>
+        var num1 = parseFloat(prompt("Digite um valor qualquer: "));
+        var num2 = parseFloat(prompt("Digite um outro valor qualquer: "));
+
+        var sumTotal = mathSum(num1, num2);
+        console.log(`Valor somado: ${sumTotal}`);
+
+        var subTotal = mathSub(num1, num2);
+        console.log(`Valor subtraido: ${subTotal}`);
+
+
+        var percentageTotal = mathPercentage(num1, num2);
+        var conversionPercentage = mathSub(num1, percentageTotal);
+
+        console.log(`Desconto recebido: ${percentageTotal}$`);
+
+        if (conversionPercentage <= 0) {
+            console.log("Valor do produto se tornou gratuito");
+        } else {
+            console.log(`Valor apos desconto aplicado: ${conversionPercentage}$`);
+        }
+    </script>
+</body>
+</html>

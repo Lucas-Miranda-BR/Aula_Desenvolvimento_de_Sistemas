@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="py-bt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exec</title>
+</head>
+<body>
+
+    <script src="functionExec.js"></script>
+
+    <script>
+
+        alert("Com função")
+
+        nf1 = parseFloat(prompt("Digite o valor da primeira nota do aluno: "));
+        nf2 = parseFloat(prompt("Digite o valor da segunda nota do aluno: "));
+        nf3 = parseFloat(prompt("Digite o valor da terceira nota do aluno: "));
+
+
+        console.log("Utilizando função: ");
+        console.log("Media: " + calcularMedia(nf1, nf2, nf3));
+        console.log("Menção: " + calcularMencao(nf1, nf2, nf3));
+
+    </script>
+</body>
+</html>

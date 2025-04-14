@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    
+
+    <script src="functionLogin.js"></script>
+    <script>
+        const curUsername = "ABC";
+        const curPassword = "CBA";
+
+        var gueUsername = prompt("Digite seu usuario: ")  
+        var guePassword = prompt("Digite sua senha: ");
+
+        if (validateLogin(curUsername, curPassword, gueUsername, guePassword)) {
+
+            console.log("Login Efetuado");
+        }
+        else {
+            console.log("Sua senha ou nome de usuario estão incorretos");
+        }
+        
+    </script>
+</body>
+</html>
