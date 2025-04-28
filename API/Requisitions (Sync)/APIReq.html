@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APIReq</title>
+</head>
+<body>
+
+            <label for="input-search">Country name</label>
+            <input type="text" name="input-search" id="input-search" required placeholder="Canada, Brazil, China...">
+            <button onclick="fetchCountry()">Search country.</button>
+
+    <script>
+
+        function fetchCountry() {
+            let input_search = document.querySelector('#input-search');
+            let country = input_search.value;
+            let url = `https://restcountries.com/v3.1/name/${country}`;
+            
+            fetch(url)
+            .then(convertData => convertData.json())
+            .then(convertedData => {
+                    console.log(convertedData)
+                })
+            .catch(unexpectedError => {
+                    console.log(unexpectedError)
+                })
+            .finally(()=>{
+                    console.log(`Requisition finalized.`)
+                });
+        }
+    </script>
+</body>
+</html>
