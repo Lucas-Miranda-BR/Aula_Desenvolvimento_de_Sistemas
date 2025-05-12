@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamelist</title>
+    <style>
+        body{
+            background-color: wheat;
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+        <legend>Cadastro de jogos</legend>
+        <label for="addGameName">Nome do jogo:</label>
+        <input type="text" name="addGameName" id="addGameName" required autocomplete="off">
+        <br>
+        <label for="addReleaseYear">Data de lançamento</label>
+        <input type="number" name="addReleaseYear" id="addReleaseYear" required>
+        <br>
+        <button onclick="addGame()">Adicionar jogo</button>
+    </fieldset>
+    <h1>Listagem de jogos</h1>
+    <div id="displayedGames"></div>
+
+    <h1>Pesquisar jogos listados</h1>
+    <div id="search">
+        <label for="searchName">Nome do jogo:</label>
+        <input type="text" name="searchName" id="searchName" required autocomplete="off">
+        <button onclick="searchGameByName()">Buscar jogo pelo nome</button>
+    </div>
+    <div id="searchResult"></div>
+
+    <script src="Gamelist.js"></script>
+</body>
+</html>

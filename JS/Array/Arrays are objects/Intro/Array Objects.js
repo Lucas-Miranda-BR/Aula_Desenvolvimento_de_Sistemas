@@ -19,8 +19,8 @@ console.log(catList);
 
 // Array como objetos e seus metodos
 
-var addCatName = prompt("Digite o nome do gato(a): ");
-var addCatRace = prompt("Digite o nome da raça do gato(a): ");
+var addCatName = prompt("Digite o nome do(a) gato(a): ");
+var addCatRace = prompt("Digite o nome da raça do(a) gato(a): ");
 catList.push({name:addCatName, race:addCatRace});
 
 // Exibição com forEach
