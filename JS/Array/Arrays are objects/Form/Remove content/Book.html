@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RC</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Cadastro livros</legend>
+        <label for="id">Código:</label>
+        <input type="number" name="id" id="id" required autocomplete="off">
+        <br>
+        <label for="name">Nome:</label>
+        <input type="text" name="name" id="name" required autocomplete="off">
+        <br>
+        <label for="writer">Escritor</label>
+        <input type="text" name="writer" id="writer" required autocomplete="off">
+        <br>
+        <button onclick="addBook()">Cadastrar</button>
+    </fieldset>
+
+    <hr>
+
+    <h1>Feedback de adicionamento de livros</h1>
+    <div id="addedBookFeedback"></div>
+
+    <hr>
+
+    <h1>Galeria de livros</h1>
+    <div id="bookGalery"></div>
+
+    <hr>
+
+    <fieldset>
+        <legend>Exclusão de livros</legend>
+        <label for="removeBook"></label>
+        <input type="number" name="removeBook" id="removeBook" required autocomplete="off">
+        <button onclick="removeBook()">Excluir</button>
+    </fieldset>
+    
+    <hr>
+
+    <h1>Feedback de exclusão de livros</h1>
+    <div id="removedBookFeedback"></div>
+
+    <script src="Book.js"></script>
+</body>
+</html>
