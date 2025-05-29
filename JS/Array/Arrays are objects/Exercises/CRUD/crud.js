@@ -1,87 +1,110 @@
 let gameList = [
     {
-        name: "Rain World",
-        devteam: "zzzz",
-        publisher: "zzzz",
-        releaseyear: "2017"
+        id: 1,
+        name: "GTA V",
+        developer: "Rockstar"
     },
     {
-        name: "xxxxx",
-        devteam: "xxx",
-        publisher: "xxx",
-        releaseyear: "xxxx"
+        id: 2,
+        name: "Rain World",
+        developer: "Videocult"
     }
 ]
 
-gameDisplay();
+displayGames();
 
-function gameDisplay() {
-    let output = document.querySelector("#gameDisplay");
+function displayGames(){
+    let output = document.querySelector("#gameGalery");
     output.innerHTML = "";
 
     gameList.forEach(game => {
-        output.innerHTML += `Nome do jogo: ${game.name} - Desenvolido por: ${game.devteam} - Publicado por: ${game.publisher} - Ano de lançamento: ${game.releaseyear} <br>`
+        output.innerHTML += `Código: <strong> ${game.id} </strong> - Nome: <strong> ${game.name} </strong> - Desenvolvidor: <strong> ${game.developer} </strong> <br>`
     });
 }
 
 function registerGame() {
-    let addGameName = document.querySelector("#inputGameName").value;
-    let addDevelopers = document.querySelector("#inputDevelopers").value;
-    let addPublisher = document.querySelector("#inputPublisher").value;
-    let addReleaseYear = document.querySelector("#inputReleaseYear").value;
+    let addId = document.querySelector("#id").value;
+    let addName = document.querySelector("#name").value;
+    let addDeveloper = document.querySelector("#developer").value;
 
-    if (addGameName && addDevelopers && addPublisher && addReleaseYear) {
-        bookList.push
+    if (addId && addName && addDeveloper) {
+        gameList.push
         (
             {
-            name:addGameName,
-            devteam:addDevelopers,
-            publisher:addPublisher,
-            release:addReleaseYear
+            id:addId,
+            name:addName,
+            developer:addDeveloper
             }
         );
 
-        let output = document.querySelector("#gameRegistrationFeedback");
-        output.innerHTML = `<h2 style="color:darkgreen"> <strong> O Jogo: ${addGameName} - Desenvolvido por: ${addDevelopers} - Publicado por: ${addPublisher} - Ano de lançamento: ${addReleaseYear} foi registrado. </strong> </h2>`
-        gameDisplay();
-        clearGameRegistrationValues();
+        let output = document.querySelector("#feedbackGameResgistration");
+        output.innerHTML = `<h2 style="color:darkgreen"> <strong> O jogo de código número: ${addId} - Nome: ${addName} - Desenvolvidor: ${addDeveloper} foi adicionado. </strong> </h2>`
+        
+        displayGames();
+        clearRegisterGameValue();
     }
 }
 
-function clearGameRegistrationValues() {
-    let gameName = document.querySelector("#inputGameName");
-    gameName.value = "";
+function clearRegisterGameValue() {
+    let id = document.querySelector("#id");
+    id.value = "";
 
-    let devTeam = document.querySelector("#inputDevelopers");
-    devTeam.value = "";
+    let name = document.querySelector("#name");
+    name.value = "";
 
-    let publisher = document.querySelector("#inputPublisher");
-    publisher.value = "";
-
-    let releaseYear = document.querySelector("#inputReleaseYear");
-    releaseYear.value = "";
+    let developer = document.querySelector("#developer");
+    developer.value = "";
 }
 
-function clearGameRemovalValues() {
+function clearGameRemovalValue() {
     let removeGame = document.querySelector("#removeGame");
     removeGame.value = "";
 }
 
-function removeGame() {
-    let removeGame = document.querySelector("#removeGame").value.toLowerCase();
-    let index = gameList.findIndex(game => game.name == removeGame);
-
-    let output = document.querySelector("#removeGame");
+function gameRemoval() {
+    let removeGameId = document.querySelector("#removeGame").value;
+    let index = gameList.findIndex(book => book.id == removeGameId);
+    let output = document.querySelector("#feedbackGameRemoval");
 
     if (index != -1) {
         gameList.splice(index,1)
-        output.innerHTML = `<h2 style="color:darkgreen"> <strong> O Jogo: ${removeGame} foi excluido. </strong> </h2>`
-        displayBooks()
+        output.innerHTML = `<h2 style="color:darkgreen"> <strong> O jogo de código número: ${removeGameId} foi excluido. </strong> </h2>`;
+        displayGames()
     }
-
     else {
-        output.innerHTML = `<h2 style="color:darkred"> <strong> O jogo: ${removeGame} não foi encontrado. </strong> </h2> `
+        output.innerHTML = `<h2 style="color:darkred"> <strong> O jogo de código número: ${removeGameId} não foi encontrado. </strong> </h2>`;
     }
 
-    clearGameRemovalValues()
+    clearGameRemovalValue();
+}
+
+function editGameInfo() {
+    let id = document.querySelector("#editID").value;
+    let editedName = document.querySelector("#editName").value;
+    let editedDeveloper = document.querySelector("#editDeveloper").value;
+    let output = document.querySelector("#editResults");
+
+    let index = gameList.findIndex(game => game.id == id);
+
+    if (index != -1 && editedName && editedDeveloper) {
+        gameList[index].name = editedName;
+        gameList[index].developer = editedDeveloper;
+        output.innerHTML = `<h3 style="color:darkgreen">O jogo de código: ${id} foi alterado.</h3>`;
+
+        displayGames();
+
+    } else {
+        output.innerHTML = `<h3 style="color:darkred">O jogo de código número: ${id} não foi encontrado. Erro: Verifique se o código existe.</h3>`;
+    }
+
+    clearEditGameInfoValue();
+}
+
+function clearEditGameInfoValue() {
+    let id = document.querySelector("#editID");
+    id.value = "";
+    let editedName = document.querySelector("#editName");
+    editedName.value = "";
+    let editedDeveloper = document.querySelector("#editDeveloper");
+    editedDeveloper.value = "";
 }
