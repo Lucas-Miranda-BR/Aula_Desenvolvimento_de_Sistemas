@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>APIReq</title>
+    <title>Home</title>
 </head>
 <body>
-
-            <label for="input-search">Country name</label>
+        <fieldset>
+            <legend>Rest Countries API</legend>
+            <label for="input-search">Nome do país: </label>
             <input type="text" name="input-search" id="input-search" required placeholder="Canada, Brazil, China...">
-            <button onclick="fetchCountry()">Search country.</button>
+            <button onclick="fetchCountry()">Buscar país</button>
+        </fieldset>
 
     <script>
 
@@ -24,10 +26,10 @@
                     console.log(convertedData)
                 })
             .catch(unexpectedError => {
-                    console.log(unexpectedError)
+                    console.log(`Erro detectado: ${unexpectedError}`)
                 })
             .finally(()=>{
-                    console.log(`Requisition finalized.`)
+                    console.log(`Requisição realizada com sucesso.`)
                 });
         }
     </script>
