@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REST COUNTRIES</title>
+</head>
+<body>
+        <fieldset>
+            <legend>Rest Countries API</legend>
+            <label for="inputSearch">Nome do país: </label>
+            <input type="text" name="inputSearch" id="inputSearch" required autocomplete="off" placeholder="Canada, Brazil, China...">
+            <button onclick="fetchCountry()">Buscar país</button>
+        </fieldset>
+        
+        <div id="countryInfo"></div>
+
+        <script src="main.js"></script>
+</body>
+</html>
