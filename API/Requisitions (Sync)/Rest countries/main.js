@@ -59,7 +59,6 @@ function regionFilter(){
             <img src="${country.flags.png}" alt="${country.flags.alt}"
             <br></br>
             <p> Região: ${country.region}</p>
-            <hr>
             </div>`
         }).join("")
         output.innerHTML = display;
