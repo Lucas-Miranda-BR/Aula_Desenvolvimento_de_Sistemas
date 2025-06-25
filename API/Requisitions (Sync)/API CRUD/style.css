@@ -1,6 +1,31 @@
 .indie-flower-regular {
-    font-family: "Indie Flower", cursive;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
+  font-family: "Indie Flower", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  padding: 20px;
+  background-color: #F2F2F2;
+}
+
+.btn-color{
+  background-color: #2706E6;
+  color: #C2C099;
+}
+.btn-color:hover {
+  background-color: #C2C099;
+  color: #2706E6;
+}
+.text-color-label {
+  color: #1B064B;
+}
+.text-color-form {
+  color: #E795F0;
+}
+.text-color{
+  color: #070341;
+}
+.text-color-card {
+  color: #D103E8;
+}
