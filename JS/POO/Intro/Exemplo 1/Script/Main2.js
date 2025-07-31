@@ -5,10 +5,10 @@ function Studentregistration(){
     let grade2 = document.querySelector("#sGrade2").value;
     let grade3 = document.querySelector("#sGrade3").value;
 
-    const a = new Student(name, course, grade1, grade2, grade3);
+    const s = new Student(name, course, grade1, grade2, grade3);
 
-    console.log(a.displayData());
-    console.log(a.avg())
+    console.log(s.display());
+    console.log(s.avg(grade1, grade2, grade3));
 
     clear()
 

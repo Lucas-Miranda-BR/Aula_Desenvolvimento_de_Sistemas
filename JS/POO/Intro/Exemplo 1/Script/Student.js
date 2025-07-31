@@ -12,6 +12,7 @@ class Student {
     }
     
     avg(sGrade1, sGrade2, sGrade3) {
-        return (sGrade1 + sGrade2 + sGrade3) / 3;
+        let sum = sGrade1 + sGrade2 + sGrade3;
+        return sum / 3;
     }
 }

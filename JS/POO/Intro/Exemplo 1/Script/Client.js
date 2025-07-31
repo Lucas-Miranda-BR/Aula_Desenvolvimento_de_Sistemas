@@ -19,6 +19,11 @@ class Client{
     this.email = clientEmail;
     this.DoB = clientDoB;
 
+        /*
+        "this" = Forma de apontar para algum
+        atributo dentro da própria CLASS
+        */
+
     }
 
     displayData(){
