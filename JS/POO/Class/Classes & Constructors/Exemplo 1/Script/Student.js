@@ -11,8 +11,7 @@ class Student {
         return `Nome: ${this.name} - Curso: ${this.course} - Notas: ${this.grade1} - ${this.grade2} - ${this.grade3}`;
     }
     
-    avg(sGrade1, sGrade2, sGrade3) {
-        let sum = sGrade1 + sGrade2 + sGrade3;
-        return sum / 3;
+    avg() {;
+        return (this.grade1 + this.grade2 + this.grade3)/3;
     }
 }
