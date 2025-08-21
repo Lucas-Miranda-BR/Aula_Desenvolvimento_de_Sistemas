@@ -1,19 +1,25 @@
 .indie-flower-regular {
-    font-family: "Indie Flower", cursive;
+    font-family: "Indie Flower";
     font-weight: 400;
     font-style: normal;
   }
+.indie-flower-bold {
+    font-family: "Indie Flower";
+    font-weight: bold;
+    font-style: normal;
+    font-size: 36px;
+  }
   
   body {
-    padding: 20px;
-    background-color: #F2F2F2;
+    background-color: #DEDEDE;
+    padding: 30px;
   }
 
   .card-text-main {
-    color: #cb68ba;
+    color: #a2a34a;
     text-align: center;
   }
   .card-text-desc {
-    color: #8f25b0;
+    color: #4292a7;
     text-align: center;
   }

@@ -14,14 +14,27 @@
     <title>API & CLASS</title>
 </head>
 <body>
-    <h1 class="indie-flower-regular">Poke API</h1>
+    <h1 class="indie-flower-bold text-center">Poke API</h1>
         <div class="mb-3 indie-flower-regular">
-            <label for="pokemonName" class="form-label">Nome do pokemon: </label>
-    <input type="text" class="form-control" name="pokemonName" id="pokemonName" autocomplete="off" required placeholder="Umbreon, Pikachu...">
+            <div class="mb-3 indie-flower-bold text-center ">Time 1</div>
+            <label for="pokemonTeam1" class="form-label">Nome do pokemon: </label>
+    <input type="text" class="form-control" name="pokemonTeam1" id="pokemonTeam1" autocomplete="off" required placeholder="Umbreon, Pikachu...">
         </div>
-        <button class="btn btn-primary" onclick="pokemonSearch()">Buscar</button>
+        <button class="btn btn-primary" onclick="addPokemonT1()">Buscar</button>
+    <div class="row mb-3" id="pokemonTeam1Zone"></div>
 
-    <div id="searchResult"></div>
+        <div class="mb-3 indie-flower-regular">
+            <div class="mb-3 indie-flower-bold text-center ">Time 2</div>
+            <label for="pokemonTeam2" class="form-label">Nome do pokemon: </label>
+    <input type="text" class="form-control" name="pokemonTeam2" id="pokemonTeam2" autocomplete="off" required placeholder="Umbreon, Pikachu...">
+        </div>
+        <button class="btn btn-primary" onclick="addPokemonT2()">Buscar</button>
+    <div class="row mb-3" id="pokemonTeam2Zone"></div>
+
+    <div class="mb-3 indie-flower-regular">
+        <div class="row"><button class="btn btn-primary" onclick="pokemonBattle()">Batalhar</button></div>
+    </div>
+
     <script src="Pokemon.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
     <script src="main.js"></script>
