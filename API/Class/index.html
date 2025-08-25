@@ -20,7 +20,9 @@
             <label for="pokemonTeam1" class="form-label">Nome do pokemon: </label>
     <input type="text" class="form-control" name="pokemonTeam1" id="pokemonTeam1" autocomplete="off" required placeholder="Umbreon, Pikachu...">
         </div>
-        <button class="btn btn-primary" onclick="addPokemonT1()">Buscar</button>
+        <div class="mb-3 d-flex justify-content-center">
+            <button class="btn btn-primary" onclick="addPokemonT1()">Buscar</button>
+        </div>
     <div class="row mb-3" id="pokemonTeam1Zone"></div>
 
         <div class="mb-3 indie-flower-regular">
@@ -28,11 +30,17 @@
             <label for="pokemonTeam2" class="form-label">Nome do pokemon: </label>
     <input type="text" class="form-control" name="pokemonTeam2" id="pokemonTeam2" autocomplete="off" required placeholder="Umbreon, Pikachu...">
         </div>
-        <button class="btn btn-primary" onclick="addPokemonT2()">Buscar</button>
+        <div class="mb-3 d-flex justify-content-center">
+            <button class="btn btn-primary" onclick="addPokemonT2()">Buscar</button>
+        </div>
     <div class="row mb-3" id="pokemonTeam2Zone"></div>
 
-    <div class="mb-3 indie-flower-regular">
-        <div class="row"><button class="btn btn-primary" onclick="pokemonBattle()">Batalhar</button></div>
+    <div class="mb-3">
+        <div class="row mb-3"><button class="btn btn-primary" onclick="pokemonBattle()">Batalhar</button></div>
+        <h1 class="indie-flower-bold text-center">Log de Batalha</h1>
+        <div class="indie-flower-regular" id="battleLog"></div>
+        <h1 class="indie-flower-bold text-center">Resultado da Batalha</h1>
+        <div class="indie-flower-regular" id="battleResult"></div>
     </div>
 
     <script src="Pokemon.js"></script>

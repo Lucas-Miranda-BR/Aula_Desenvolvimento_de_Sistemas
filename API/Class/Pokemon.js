@@ -26,6 +26,30 @@ class Pokemon{
     get pSprite(){
         return this._pSprite;
     }
+    set pAttack(pAttack){
+        this._pAttack = pAttack;
+    }
+    get pAttack(){
+        return this._pAttack;
+    }
+    set pDefense(pDefense){
+        this._pDefense = pDefense;
+    }
+    get pDefense(){
+        return this._pDefense;
+    }
+    set pHealth(pHealth){
+        this._pHealth = pHealth;
+    }
+    get pHealth(){
+        return this._pHealth;
+    }
+    set pSlot(pSlot){
+        this._pSlot = pSlot;
+    }
+    get pSlot(){
+        return this.pSlot;
+    }
 
     pokemonTeam1Display() {
         let output = document.querySelector("#pokemonTeam1Zone")
@@ -37,7 +61,19 @@ class Pokemon{
         <h5 class="card-title card-text-main"><strong>${this._pName}</strong></h5>
         <p class="card-text card-text-desc"> ID: <strong>${this._pId}</strong>
         <br>
-        Tipos: <strong>${this._pType}</strong></p>
+        Tipos: <strong>${this._pType}</strong>
+        <br>
+        Vida: <strong>${this._pHealth}</strong>
+        <br>
+        Defesa: <strong>${this._pDefense}</strong>
+        <br>
+        Ataque: <strong>${this._pAttack}</strong>
+        <br>
+        Slot: <strong>${this._pSlot}</strong>
+        </p>
+        <div class="d-flex justify-content-center">
+        <progress id="pokemonHpTeam2" value="${this._pHealth}" max="${this._pHealth}"></progress>
+        </div>
         </div>
         </div>
         </div>`;
@@ -56,7 +92,19 @@ class Pokemon{
         <h5 class="card-title card-text-main"><strong>${this._pName}</strong></h5>
         <p class="card-text card-text-desc"> ID: <strong>${this._pId}</strong>
         <br>
-        Tipos: <strong>${this._pType}</strong></p>
+        Tipos: <strong>${this._pType}</strong>
+        <br>
+        Vida: <strong>${this._pHealth}</strong>
+        <br>
+        Defesa: <strong>${this._pDefense}</strong>
+        <br>
+        Ataque: <strong>${this._pAttack}</strong>
+        <br>
+        Slot: <strong>${this._pSlot}</strong>
+        </p>
+        <div class="d-flex justify-content-center">
+        <progress id="pokemonHpTeam2" value="${this.pHealth}" max="${this.pHealth}"></progress>
+        </div>
         </div>
         </div>
         </div>`;
