@@ -1,7 +1,8 @@
 .indie-flower-regular {
     font-family: "Indie Flower";
-    font-weight: 400;
+    font-weight: normal;
     font-style: normal;
+    font-size: 24px;
   }
 .indie-flower-bold {
     font-family: "Indie Flower";
@@ -21,5 +22,21 @@
   }
   .card-text-desc {
     color: #4292a7;
+    text-align: center;
+  }
+  .indie-flower-log {
+    font-family: "Indie Flower";
+    font-weight: 500;
+    font-style: normal;
+    font-size: 20px;
+    color: palevioletred;
+    text-align: center;
+  }
+  .indie-flower-win {
+    font-family: "Indie Flower";
+    font-weight: 500;
+    font-style: normal;
+    font-size: 20px;
+    color: lightgoldenrodyellow;
     text-align: center;
   }

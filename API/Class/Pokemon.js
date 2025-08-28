@@ -1,53 +1,53 @@
-class Pokemon{
-    set pName(pName){
+class Pokemon {
+    set pName(pName) {
         this._pName = pName;
     }
-    get pName(){
+    get pName() {
         return this._pName;
     }
 
-    set pType(pType){
+    set pType(pType) {
         this._pType = pType;
     }
-    get pType(){
+    get pType() {
         return this._pType;
     }
 
-    set pId(pId){
+    set pId(pId) {
         this._pId = pId;
     }
-    get pId(){
+    get pId() {
         return this._pId;
     }
 
-    set pSprite(pSprite){
+    set pSprite(pSprite) {
         this._pSprite = pSprite;
     }
-    get pSprite(){
+    get pSprite() {
         return this._pSprite;
     }
-    set pAttack(pAttack){
+    set pAttack(pAttack) {
         this._pAttack = pAttack;
     }
-    get pAttack(){
+    get pAttack() {
         return this._pAttack;
     }
-    set pDefense(pDefense){
+    set pDefense(pDefense) {
         this._pDefense = pDefense;
     }
-    get pDefense(){
+    get pDefense() {
         return this._pDefense;
     }
-    set pHealth(pHealth){
+    set pHealth(pHealth) {
         this._pHealth = pHealth;
     }
-    get pHealth(){
+    get pHealth() {
         return this._pHealth;
     }
-    set pSlot(pSlot){
+    set pSlot(pSlot) {
         this._pSlot = pSlot;
     }
-    get pSlot(){
+    get pSlot() {
         return this.pSlot;
     }
 
@@ -71,13 +71,10 @@ class Pokemon{
         <br>
         Slot: <strong>${this._pSlot}</strong>
         </p>
-        <div class="d-flex justify-content-center">
-        <progress id="pokemonHpTeam2" value="${this._pHealth}" max="${this._pHealth}"></progress>
-        </div>
         </div>
         </div>
         </div>`;
-        
+
         let pokemonName = document.querySelector("#pokemonTeam1");
         pokemonName.value = "";
     }
@@ -102,13 +99,10 @@ class Pokemon{
         <br>
         Slot: <strong>${this._pSlot}</strong>
         </p>
-        <div class="d-flex justify-content-center">
-        <progress id="pokemonHpTeam2" value="${this.pHealth}" max="${this.pHealth}"></progress>
-        </div>
         </div>
         </div>
         </div>`;
-        
+
         let pokemonName = document.querySelector("#pokemonTeam2");
         pokemonName.value = "";
     }
