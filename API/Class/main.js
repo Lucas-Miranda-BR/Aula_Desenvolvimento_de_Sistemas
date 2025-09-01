@@ -37,11 +37,6 @@ function addPokemonT1() {
             slot: pokeSlot
         });
 
-        const p1HealthMax = document.getElementById("pokemonHpTeam1");
-        p1HealthMax.setAttribute('max', pokeHealth);
-        const p1HealthCurrent = document.getElementById("pokemonHpTeam1");
-        p1HealthCurrent.setAttribute('value', pokeHealth);
-
         pokemonHp1 = p1.pHealth;
         poke1 = p1;
 
@@ -80,11 +75,6 @@ function addPokemonT2() {
             slot: pokeSlot
         });
 
-        const p2HealthMax = document.getElementById("pokemonHpTeam2");
-        p2HealthMax.setAttribute('max', pokeHealth);
-        const p2HealthCurrent = document.getElementById("pokemonHpTeam2");
-        p2HealthCurrent.setAttribute('value', pokeHealth);
-
         pokemonHp2 = p2.pHealth;
         poke2 = p2;
 
@@ -113,6 +103,15 @@ function pokemonBattle() {
     let pokemonDef1 = poke1.defense;
     let pokemonDef2 = poke2.defense;
 
+    const p1HealthMax = document.getElementById("pokemonHpTeam1");
+    p1HealthMax.setAttribute('max', pokemonHp1);
+    const p1HealthCurrent = document.getElementById("pokemonHpTeam1");
+    p1HealthCurrent.setAttribute('value', pokemonHp1);
+    const p2HealthMax = document.getElementById("pokemonHpTeam2");
+    p2HealthMax.setAttribute('max', pokemonHp1);
+    const p2HealthCurrent = document.getElementById("pokemonHpTeam2");
+    p2HealthCurrent.setAttribute('value', pokemonHp1);
+
     let turn = 1;
 
     let log = "";
@@ -126,7 +125,10 @@ function pokemonBattle() {
 
             if (turn % 2 == 0) {
 
-                let dmg = Math.floor(Math.random() * ((pokemonDmg1 - pokemonDef2)+ 5))
+                let dmg = Math.floor(Math.random() * ((pokemonDmg1 - pokemonDef2) + 5))
+                if (dmg < 0) {
+                    dmg *= -1
+                }
 
                 pokemonHp2 -= dmg;
                 document.getElementById("pokemonHpTeam2").value -= dmg
@@ -135,6 +137,9 @@ function pokemonBattle() {
             }
             else {
                 let dmg = Math.floor(Math.random() * ((pokemonDmg2 - pokemonDef1) + 5))
+                if (dmg < 0) {
+                    dmg *= -1
+                }
 
                 pokemonHp1 -= dmg;
                 document.getElementById("pokemonHpTeam1").value -= dmg
@@ -147,15 +152,14 @@ function pokemonBattle() {
         else {
             clearInterval(interval)
             if (pokemonHp1 <= 0) {
-                document.getElementById("battleResult").innerHTML = `<div class="row mb-3 indie-flower-win"> O time ganhador é o time 2! (${poke2.name})</div>`
+                document.getElementById("battleResult").innerHTML = `<p class="indie-flower-win"> O time ganhador é o time 2! (${poke2.name})</p>`
             } else {
-                document.getElementById("battleResult").innerHTML = `<div class="row mb-3 indie-flower-win"> O time ganhador é o time 1! (${poke1.name})</div>`
+                document.getElementById("battleResult").innerHTML = `<p class="indie-flower-win"> O time ganhador é o time 1! (${poke1.name})</p>`
             }
         }
     }, 1000);
 
 }
 
-    
 
-    
+
