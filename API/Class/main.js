@@ -161,5 +161,13 @@ function pokemonBattle() {
 
 }
 
+function registerTrainer(){
+    let t = new Treinador;
+    t.tName = document.querySelector("#trainerName").value
+    t.tAge = parseInt(document.querySelector("#trainerAge").value)
+    t.tCity = document.querySelector("#trainerCity").value
+}
 
-
+function displayOnLoad(){
+    console.log(t.displayTrainers());
+}
