@@ -8,6 +8,9 @@ let poke2 = null;
 let pokemonHp1 = null;
 let pokemonHp2 = null;
 
+let trainerList = [];
+let t = new Treinador;
+
 function addPokemonT1() {
     let pokemonName = document.querySelector("#pokemonTeam1").value;
 
@@ -161,13 +164,42 @@ function pokemonBattle() {
 
 }
 
-function registerTrainer(){
-    let t = new Treinador;
-    t.tName = document.querySelector("#trainerName").value
-    t.tAge = parseInt(document.querySelector("#trainerAge").value)
-    t.tCity = document.querySelector("#trainerCity").value
+function registerTrainer() {
+    let trainerSlot = 0
+    let trainerName = t._tName = document.querySelector("#trainerName").value
+    let trainerAge = t._tAge = parseInt(document.querySelector("#trainerAge").value)
+    let trainerCity = t._tCity = document.querySelector("#trainerCity").value
+
+    trainerList.push({
+        id: trainerSlot++,
+        name: trainerName,
+        age: trainerAge,
+        city: trainerCity
+    })
+
+
+    localStorage.setItem('trainerInfo', JSON.stringify(trainerList));
+
+    let selectName = document.querySelector("#trainerName");
+    let selectAge = document.querySelector("#trainerAge");
+    let selectCity = document.querySelector("#trainerCity");
+    selectName.value = "";
+    selectAge.value = "";
+    selectCity.value = "";
 }
 
-function displayOnLoad(){
-    console.log(t.displayTrainers());
+function displayTrainers() {
+    let info = JSON.parse(localStorage.getItem('trainerInfo'));
+    console.log(info);
+    let output = document.querySelector("#trainerDisplay");
+
+    for (let i = 0; i < info.length; i++) {
+        output.innerHTML = `<div class="mb-3 indie-flower-regular"><p>Nome: ${info[i].name} - Idade: ${info[i].age} - Cidade: ${info[i].city} - Slot: ${info[i].id} <br> <button class="btn btn-edit indie-flower-regular" onclick="editTrainer()">Edtitar</button> <button class="btn btn-delete indie-flower-regular" onclick="deleteTrainer()">Deletar</button>`;
+    }
+}
+
+function editTrainer(){
+    newName = prompt("Digite um novo nome. ");
+    newAge = parseInt(prompt("Digite uma nova idade. "));
+    newCity = prompt("Digite uma nova cidade. ");
 }

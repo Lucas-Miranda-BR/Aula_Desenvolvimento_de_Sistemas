@@ -24,7 +24,7 @@
     font-family: "Indie Flower";
     font-weight: normal;
     font-style: normal;
-    font-size: 12px;
+    font-size: 18px;
   }
 .indie-flower-bold {
     font-family: "Indie Flower";
@@ -45,8 +45,14 @@
     text-align: center;
   }
   .btn-edit{
-    background-color: lightsalmon;
+    background-color: rgb(200, 165, 0);
   }
   .btn-delete{
+    background-color: lightcoral;
+  }
+  .btn-edit:hover{
+    background-color: rgb(255, 165, 0);
+  }
+  .btn-delete:hover{
     background-color: red;
   }
