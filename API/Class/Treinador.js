@@ -19,6 +19,4 @@ class Treinador {
     get tCity() {
         return this._tCity
     }
-
-
 }

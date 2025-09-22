@@ -11,6 +11,9 @@ let pokemonHp2 = null;
 let trainerList = [];
 let t = new Treinador;
 
+let assignTrainerPoke1 = null;
+let assignTrainerPoke2 = null;
+
 function addPokemonT1() {
     let pokemonName = document.querySelector("#pokemonTeam1").value;
 
@@ -93,12 +96,18 @@ function pokemonBattle() {
     poke1 = pokemonTeam1[findPokeSlot1];
     poke2 = pokemonTeam2[findPokeSlot2];
 
-
+    assignTrainerPoke1 = String(prompt("Digite um ID de um treinador(a) para seleciona-lo(a) ao pokemon do time 1"));
+    assignTrainerPoke2 = String(prompt("Digite um ID de um treinador(a) para seleciona-lo(a) ao pokemon do time 2"));
+    let info = JSON.parse(localStorage.getItem('trainerInfo'));
 
     if (!poke1 || !poke2) {
-        alert("Selecione um pokemon de cada time!");
-        return;
+        return alert("Selecione um pokemon de cada time!");
     }
+
+    if (!assignTrainerPoke1 > (info.length - 1) || !assignTrainerPoke2 > (info.length - 1)) {
+        return alert("Selecione um treinador(a) para cada pokemon!")
+    }
+
     let pokemonHp1 = poke1.health;
     let pokemonHp2 = poke2.health;
     let pokemonDmg1 = poke1.attack;
@@ -143,7 +152,6 @@ function pokemonBattle() {
                 if (dmg < 0) {
                     dmg *= -1
                 }
-
                 pokemonHp1 -= dmg;
                 document.getElementById("pokemonHpTeam1").value -= dmg
 
@@ -155,9 +163,9 @@ function pokemonBattle() {
         else {
             clearInterval(interval)
             if (pokemonHp1 <= 0) {
-                document.getElementById("battleResult").innerHTML = `<p class="indie-flower-win"> O time ganhador é o time 2! (${poke2.name})</p>`
+                document.getElementById("battleResult").innerHTML = `<p class="indie-flower-win"> O time ganhador é o time 2! O pokemon vencedor é ${poke2.name} seu treinador(a) é ${info[assignTrainerPoke2].name}</p>`
             } else {
-                document.getElementById("battleResult").innerHTML = `<p class="indie-flower-win"> O time ganhador é o time 1! (${poke1.name})</p>`
+                document.getElementById("battleResult").innerHTML = `<p class="indie-flower-win"> O time ganhador é o time 1! O pokemon vencedor é ${poke1.name} seu treinador(a) é ${info[assignTrainerPoke1].name}</p>`
             }
         }
     }, 1000);
@@ -190,16 +198,46 @@ function registerTrainer() {
 
 function displayTrainers() {
     let info = JSON.parse(localStorage.getItem('trainerInfo'));
-    console.log(info);
     let output = document.querySelector("#trainerDisplay");
 
     for (let i = 0; i < info.length; i++) {
-        output.innerHTML = `<div class="mb-3 indie-flower-regular"><p>Nome: ${info[i].name} - Idade: ${info[i].age} - Cidade: ${info[i].city} - Slot: ${info[i].id} <br> <button class="btn btn-edit indie-flower-regular" onclick="editTrainer()">Edtitar</button> <button class="btn btn-delete indie-flower-regular" onclick="deleteTrainer()">Deletar</button>`;
+        output.innerHTML = `<div class="mb-3 indie-flower-regular"><p>Nome: ${info[i].name} - Idade: ${info[i].age} - Cidade: ${info[i].city} - Slot: ${info[i].id} <br>`;
     }
 }
 
-function editTrainer(){
-    newName = prompt("Digite um novo nome. ");
-    newAge = parseInt(prompt("Digite uma nova idade. "));
-    newCity = prompt("Digite uma nova cidade. ");
+function editTrainer() {
+    info = JSON.parse(localStorage.getItem("trainerInfo"))
+    let id = String(prompt("Digite o ID do treinador(a) que deseje alterar."));
+    let newName = prompt("Digite um novo nome.");
+    let newAge = String(prompt("Digite uma nova idade."));
+    let newCity = prompt("Digite uma nova cidade.");
+
+    let i = info.findIndex(trainer => trainer.id == id);
+
+    if (i != -1 && newName && newAge && newCity) {
+        info[id].name = newName;
+        info[id].age = newAge;
+        info[id].city = newCity;
+        alert("Dados alterados");
+    }
+    else {
+        return alert("Não foi possível encontrar o ID do treinador(a) selecionado(a)");
+    }
 }
+
+function deleteTrainer() {
+    info = JSON.parse(localStorage.getItem("trainerInfo"))
+    let deleteTrainerID = String(prompt("Digite o ID do(a) treinador(a) que deseja remover. "));
+    let i = info.findIndex(trainers => trainers.id == deleteTrainerID);
+
+    if (i != -1) {
+        info.splice(i, 1)
+        alert("Remoção realizada com sucesso");
+    }
+
+    else {
+        return alert("Não foi possível encontrar o ID do treinador(a) selecionado(a)");
+    }
+}
+
+// TODO / Fix last 3 functions ^^
