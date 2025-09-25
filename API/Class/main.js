@@ -10,6 +10,8 @@ let pokemonHp2 = null;
 
 let trainerList = [];
 let t = new Treinador;
+let info = null;
+let trainerId = 0
 
 let assignTrainerPoke1 = null;
 let assignTrainerPoke2 = null;
@@ -96,8 +98,8 @@ function pokemonBattle() {
     poke1 = pokemonTeam1[findPokeSlot1];
     poke2 = pokemonTeam2[findPokeSlot2];
 
-    assignTrainerPoke1 = String(prompt("Digite um ID de um treinador(a) para seleciona-lo(a) ao pokemon do time 1"));
-    assignTrainerPoke2 = String(prompt("Digite um ID de um treinador(a) para seleciona-lo(a) ao pokemon do time 2"));
+    assignTrainerPoke1 = String(prompt("Digite um ID de um(a) treinador(a) para seleciona-lo(a) ao pokemon do time 1"));
+    assignTrainerPoke2 = String(prompt("Digite um ID de um(a) treinador(a) para seleciona-lo(a) ao pokemon do time 2"));
     let info = JSON.parse(localStorage.getItem('trainerInfo'));
 
     if (!poke1 || !poke2) {
@@ -173,20 +175,19 @@ function pokemonBattle() {
 }
 
 function registerTrainer() {
-    let trainerSlot = 0
     let trainerName = t._tName = document.querySelector("#trainerName").value
     let trainerAge = t._tAge = parseInt(document.querySelector("#trainerAge").value)
     let trainerCity = t._tCity = document.querySelector("#trainerCity").value
 
     trainerList.push({
-        id: trainerSlot++,
+        id: trainerId++,
         name: trainerName,
         age: trainerAge,
         city: trainerCity
     })
 
-
-    localStorage.setItem('trainerInfo', JSON.stringify(trainerList));
+    info = trainerList
+    saveLocalStorage(info);
 
     let selectName = document.querySelector("#trainerName");
     let selectAge = document.querySelector("#trainerAge");
@@ -196,12 +197,15 @@ function registerTrainer() {
     selectCity.value = "";
 }
 
+function saveLocalStorage(info){
+    info =+ localStorage.setItem('trainerInfo', JSON.stringify(info));
+}
+
 function displayTrainers() {
     let info = JSON.parse(localStorage.getItem('trainerInfo'));
     let output = document.querySelector("#trainerDisplay");
-
     for (let i = 0; i < info.length; i++) {
-        output.innerHTML = `<div class="mb-3 indie-flower-regular"><p>Nome: ${info[i].name} - Idade: ${info[i].age} - Cidade: ${info[i].city} - Slot: ${info[i].id} <br>`;
+        output.innerHTML += `<div class="mb-3 indie-flower-regular"><p>Nome: ${info[i].name} - Idade: ${info[i].age} - Cidade: ${info[i].city} - ID: ${info[i].id} <br>`;
     }
 }
 
@@ -215,29 +219,37 @@ function editTrainer() {
     let i = info.findIndex(trainer => trainer.id == id);
 
     if (i != -1 && newName && newAge && newCity) {
-        info[id].name = newName;
-        info[id].age = newAge;
-        info[id].city = newCity;
+        info[i].name = newName;
+        info[i].age = newAge;
+        info[i].city = newCity;
+        trainerList = info;
+        saveLocalStorage(info);
         alert("Dados alterados");
     }
     else {
         return alert("Não foi possível encontrar o ID do treinador(a) selecionado(a)");
     }
+    let output = document.querySelector("#trainerDisplay");
+    output.innerHTML = ""
+    displayTrainers();
 }
 
 function deleteTrainer() {
     info = JSON.parse(localStorage.getItem("trainerInfo"))
-    let deleteTrainerID = String(prompt("Digite o ID do(a) treinador(a) que deseja remover. "));
-    let i = info.findIndex(trainers => trainers.id == deleteTrainerID);
+    let deleteTrainerId = String(prompt("Digite o ID do(a) treinador(a) que deseja remover. "));
+    let i = info.findIndex(trainers => trainers.id == deleteTrainerId);
+    let output = document.querySelector("#trainerDisplay");
 
     if (i != -1) {
         info.splice(i, 1)
-        alert("Remoção realizada com sucesso");
+        trainerList = info
+        saveLocalStorage(info);
+        output.innerHTML = `<div class="mb-3 indie-flower-regular"><p>Remoção de treinador(a) com ID de ${deleteTrainerId}</p></div>`
     }
 
     else {
         return alert("Não foi possível encontrar o ID do treinador(a) selecionado(a)");
     }
+    console.log(info)
+    displayTrainers();
 }
-
-// TODO / Fix last 3 functions ^^
